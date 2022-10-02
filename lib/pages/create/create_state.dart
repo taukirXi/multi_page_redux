@@ -4,6 +4,6 @@ class CreateState{
 
   CreateState({required this.text});
 
-  CreateState.initialState(): text='h';
+  CreateState.initialState(): text='';
 
 }

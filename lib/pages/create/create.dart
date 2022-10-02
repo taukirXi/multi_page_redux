@@ -45,7 +45,7 @@ class _CreateState extends State<Create> {
               StoreConnector<AppState, String>(
                   converter: (store) => store.state.createState.text,
                   builder: (context, text) => Center(
-                    child: Text('${text}kkkkk'),
+                    child: Text('${text}'),
                   ),
                 ),
 
