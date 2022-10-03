@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:multi_page_redux/pages/create/create.dart';
 import 'package:multi_page_redux/pages/home.dart';
-import 'package:multi_page_redux/redux/app_state.dart';
-import 'package:multi_page_redux/redux/reducers.dart';
+import 'package:multi_page_redux/redux/app/app_state.dart';
+import 'package:multi_page_redux/redux/app/reducers.dart';
 
 
 import 'package:redux/redux.dart';
@@ -23,11 +22,12 @@ class MyApp extends StatelessWidget {
     return StoreProvider(
       store: store,
       child: MaterialApp(
+
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.green,
         ),
-        home: Create(),
+        home: MyHomePage(),
       ),
     );
   }

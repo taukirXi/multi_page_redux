@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:multi_page_redux/pages/create/create.dart';
+import 'package:multi_page_redux/pages/create.dart';
 import 'package:multi_page_redux/pages/increment.dart';
 import 'package:multi_page_redux/pages/profile.dart';
 

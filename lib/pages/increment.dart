@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:multi_page_redux/redux/actions.dart';
-import 'package:multi_page_redux/redux/app_state.dart';
+import 'package:multi_page_redux/redux/app/app_state.dart';
+import 'package:multi_page_redux/redux/increment/increment_action.dart';
 
 
 class Increment extends StatefulWidget {
@@ -19,19 +19,19 @@ class _IncrementState extends State<Increment> {
       appBar: AppBar(
         title: Text('increment state'),
       ),
-      // body: StoreConnector<AppState, AppState>(
-      //   converter: (store) => store.state,
-      //   builder: (context, counter) => Center(
-      //     child: Text('${counter.counter}'),
-      //   ),
-      // ),
-      // floatingActionButton: StoreConnector<AppState, VoidCallback>(
-      //   converter: (store) => ()=>store.dispatch(IncrementAction()),
-      //   builder: (_, callback) => FloatingActionButton(
-      //     onPressed:  callback,
-      //     child: Icon(Icons.add),
-      //   ),
-      // ),
+      body: StoreConnector<AppState, AppState>(
+        converter: (store) => store.state,
+        builder: (context, state) => Center(
+          child: Text('${state.incrementState.counter}'),
+        ),
+      ),
+      floatingActionButton: StoreConnector<AppState, VoidCallback>(
+        converter: (store) => ()=>store.dispatch(IncrementAction()),
+        builder: (_, callback) => FloatingActionButton(
+          onPressed:  callback,
+          child: Icon(Icons.add),
+        ),
+      ),
 
     );
   }
