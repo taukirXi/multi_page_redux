@@ -39,10 +39,10 @@ class _CreateState extends State<Create> {
             ),
             // FlatButton(onPressed: () {}, child: Text('cancel'))
 
-            StoreConnector<AppState, String>(
-              converter: (store) => store.state.createState.text,
-              builder: (context, text) => Center(
-                child: Text('${text}'),
+            StoreConnector<AppState, AppState>(
+              converter: (store) => store.state,
+              builder: (context, state) => Center(
+                child: Text('${state.createState.text}'),
               ),
             ),
           ],

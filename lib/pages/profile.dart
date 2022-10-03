@@ -17,33 +17,23 @@ class _ProfileState extends State<Profile> {
       appBar: AppBar(
         title: Text('profile'),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        // crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Center(
-            child: InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Create()),
-                );
-              },
-              child: Icon(Icons.add),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('value from increment page'),
+            StoreConnector<AppState, AppState>(
+              converter: (store) => store.state,
+              builder: (_, state) => Text('${state.incrementState.counter}'),
             ),
-          ),
-          Text('value from increment page'),
-          StoreConnector<AppState, AppState>(
-            converter: (store) => store.state,
-            builder: (_, state) => Text('${state.incrementState.counter}'),
-          ),
 
-          SizedBox(height: 10,),
-          Text('value from create page'),
+            SizedBox(height: 10,),
+            Text('value from create page'),
 
-          StoreConnector<AppState, AppState>(converter: (store) => store.state,
-              builder: (_, state) => Text('${state.createState.text}'),)
-        ],
+            StoreConnector<AppState, AppState>(converter: (store) => store.state,
+                builder: (_, state) => Text('${state.createState.text}'),)
+          ],
+        ),
       ),
     );
   }
