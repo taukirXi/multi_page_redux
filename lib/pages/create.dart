@@ -25,10 +25,16 @@ class _CreateState extends State<Create> {
         ),
         Row(
           children: [
-            StoreConnector<AppState, dynamic>(
+            // store connector takes app state
+            // and dynamic so any others action works fine
+            // or we can use types as well
+            StoreConnector<AppState, VoidCallback>(
               converter: (store) =>
+                  // dispatcher call action and store it to converter
                   () => store.dispatch(CreateAction(_textController.text)),
+              // converter pass the to builder
               builder: (_, callback) => FlatButton(
+                // call is a function that will take the text and pass it states
                 onPressed: () {
                   print("object1");
                   callback();
@@ -39,9 +45,14 @@ class _CreateState extends State<Create> {
             ),
             // FlatButton(onPressed: () {}, child: Text('cancel'))
 
+
+            // to show and pass needs connector
+
             StoreConnector<AppState, AppState>(
               converter: (store) => store.state,
               builder: (context, state) => Center(
+                // text is stored in state
+                // to it will bring the value from state
                 child: Text('${state.createState.text}'),
               ),
             ),

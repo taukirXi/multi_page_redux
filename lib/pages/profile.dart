@@ -22,16 +22,23 @@ class _ProfileState extends State<Profile> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text('value from increment page'),
+            /*
+            * to show only one single store can
+            * have all the values and inject whenever it needs
+            * */
             StoreConnector<AppState, AppState>(
               converter: (store) => store.state,
               builder: (_, state) => Text('${state.incrementState.counter}'),
             ),
-
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             Text('value from create page'),
-
-            StoreConnector<AppState, AppState>(converter: (store) => store.state,
-                builder: (_, state) => Text('${state.createState.text}'),)
+            StoreConnector<AppState, AppState>(
+              // same as before
+              converter: (store) => store.state,
+              builder: (_, state) => Text('${state.createState.text}'),
+            )
           ],
         ),
       ),

@@ -3,5 +3,6 @@ class IncrementState {
 
   IncrementState(this.counter);
 
+  // initialize
   IncrementState.initialState() : counter = 0;
 }

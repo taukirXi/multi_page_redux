@@ -30,6 +30,19 @@ class _MyHomePageState extends State<MyHomePage> {
       });
     }
 
+    /*
+    *
+    * simple navigation bar
+    *  to navigate pages
+    * but to show
+    * to take value from
+    * one page and
+    * show another
+    * this is how state management works
+    *
+    *
+    * */
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

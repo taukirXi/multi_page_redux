@@ -20,12 +20,15 @@ class _IncrementState extends State<Increment> {
         title: Text('increment state'),
       ),
       body: StoreConnector<AppState, AppState>(
+        // here it only show increment value
         converter: (store) => store.state,
         builder: (context, state) => Center(
           child: Text('${state.incrementState.counter}'),
         ),
       ),
       floatingActionButton: StoreConnector<AppState, VoidCallback>(
+
+        //
         converter: (store) => ()=>store.dispatch(IncrementAction()),
         builder: (_, callback) => FloatingActionButton(
           onPressed:  callback,
